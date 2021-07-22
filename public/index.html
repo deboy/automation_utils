@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automation Prepare</title>
+  </head>
+  <style>
+    table,table tr th, table tr td { border:1px solid #0094ff; }
+    table {min-height: 30px; line-height: 25px; text-align: left; border-collapse: collapse;}   
+</style>
+  <script src="./js/zepto.min.js"></script>
+  <script src="./js/test.js"></script>
+  <body>
+    <div id="divFirstStep">
+      <span>请输入 Test Case 所在目录</span>
+      <input style="width:400px;" type="text" id="caseRootFolder" placeholder="C:\Users\bowen\Desktop\Runnable"/>
+      &nbsp;
+      <button id="checkRootFolderBtn">开始</button>
+    </div>
+    <div id="divSecondStep" style="display:none;">
+      <table>
+        <tr>
+          <td>选择自动化站点</td>
+          <td>
+            <select value="https://www.gapsystemschina.cn/AutoSF/login.jsp" name="" id="target_site">
+              <option value="https://www.gapsystemschina.cn/AutoSF/login.jsp">Dev_Automation(开发组)</option>
+              <option value="https://www.gapsystems.cn/AutomatedTestSF/login.jsp">Test_Automation(测试组)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>选择脚本集合</td>
+          <td>
+            <select name="" value="-1" id="selectBatFile">
+              <option value="-1">-</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>请输入测试报告收件人，多有用逗号分隔</td>
+          <td>
+            <input id="reportEmailAddress" type="text" style="width:400px;" readonly value="bfeng@loftware.com"/>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="text-align: center;"><button id="btnStartCheck">开始检查</button></td>
+        </tr>
+      </table>
+      <hr>
+      <hr>
+      <p>检查结果: &nbsp;&nbsp;<button id="startRun">开始运行自动化脚本</button></p>
+      <table id="tableCheckResult">
+        <tr>
+          <td>浏览器版: <span id="spanLocalBrownserVersion"></span></td>
+          <td>ChromeDriver 版本: <span id="spanChromeDriverVersion"></span></td>
+          <td>
+            <span id="spanBrownser"></span>
+          </td>
+        </tr>
+        <tr>
+          <td>Bat 文件中的环境变量是否已经替换</td>
+          <td>
+            <span id="isJarPathSetPass"></span>
+          </td>
+          <td>
+            <button id="setJarPathBtn">设置路径</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Log 文件是否已经清空</td>
+          <td>
+            <span id="isLogFolderEmpty"></span>
+          </td>
+          <td>
+            <button id="cleanUpLogFolder">清空 Log 文件夹</button>
+          </td>
+        </tr>
+        <tr>
+          <td>目标站点是否已经设置</td>
+          <td>
+            <span id="isTargetSiteSet"></span>
+          </td>
+          <td>
+            <button id="setTargetSite">设置目标站点</button>
+          </td>
+        </tr>
+        <tr>
+          <td>BAT文件中包含测试报告</td>
+          <td>
+            <span id="isReportXMLSet"></span>
+          </td>
+          <td>
+            <button id="addRportXMl">添加Report XML</button>
+          </td>
+        </tr>
+        <tr>
+          <td>测试报告邮件</td>
+          <td>
+            <span id="reportToAddress"></span>
+          </td>
+          <td>
+            <button id="setToAddress">设置邮件地址</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>
